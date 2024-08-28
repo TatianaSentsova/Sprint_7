@@ -5,6 +5,7 @@ class Url:
     SCOOTER_URL = 'http://qa-scooter.praktikum-services.ru'
     ENDPOINT_COURIER = '/api/v1/courier'
     ENDPOINT_LOGIN = '/api/v1/courier/login'
+    ENDPOINT_ORDER = '/api/v1/orders'
 
 
 class ResponseMessage:
@@ -19,3 +20,16 @@ class FakeBody:
     CREATE_COURIER_WITHOUT_REQUIRED_FIELD = [{"login": FakeData.login(), "password": '', "firstName": FakeData.first_name()},
                                              {"login": '', "password": FakeData.password(), "firstName": FakeData.first_name()}]
     LOGIN_COURIER = {"login": FakeData.login(), "password": FakeData.password()}
+    CREATE_ORDER = {"firstName": FakeData.first_name(),
+                    "lastName": FakeData.last_name(),
+                    "address": FakeData.address(),
+                    "metroStation": FakeData.metro_station(),
+                    "phone": FakeData.phone(),
+                    "rentTime": FakeData.rent_time(),
+                    "deliveryDate": FakeData.delivery_date(),
+                    "comment": FakeData.comment(),
+                    "color": []}
+
+
+class Data:
+    COLOR = [['BLACK', 'GREY'], ['BLACK'], ['GREY'], ['']]
