@@ -1,4 +1,5 @@
 from fake_data import FakeData
+from ApiShop import ApiBodyBuilder
 
 
 class Url:
@@ -15,11 +16,12 @@ class ResponseMessage:
     NOT_ENOUGH_DATA_FOR_CREATE = {'code': 400, 'message': 'Недостаточно данных для создания учетной записи'}
     NOT_ENOUGH_DATA_FOR_LOGIN = {'code': 400, 'message': 'Недостаточно данных для входа'}
     ACCOUNT_NOT_FOUND = {'code': 404, 'message': 'Учетная запись не найдена'}
+    FLAG_ORDERS_LIST = 'orders'
 
 
 class FakeBody:
-    CREATE_COURIER_WITHOUT_REQUIRED_FIELD = [{"login": FakeData.login(), "password": '', "firstName": FakeData.first_name()},
-                                             {"login": '', "password": FakeData.password(), "firstName": FakeData.first_name()}]
+    CREATE_COURIER_WITHOUT_REQUIRED_FIELD = [ApiBodyBuilder.build_courier_body(FakeData.login(), '', FakeData.first_name()),
+                                             ApiBodyBuilder.build_courier_body('', FakeData.password(), FakeData.first_name())]
     LOGIN_COURIER = {"login": FakeData.login(), "password": FakeData.password()}
     CREATE_ORDER = {"firstName": FakeData.first_name(),
                     "lastName": FakeData.last_name(),
