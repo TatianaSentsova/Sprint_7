@@ -1,5 +1,4 @@
 from fake_data import FakeData
-from ApiShop import ApiBodyBuilder
 
 
 class Url:
@@ -20,8 +19,6 @@ class ResponseMessage:
 
 
 class FakeBody:
-    CREATE_COURIER_WITHOUT_REQUIRED_FIELD = [ApiBodyBuilder.build_courier_body(FakeData.login(), '', FakeData.first_name()),
-                                             ApiBodyBuilder.build_courier_body('', FakeData.password(), FakeData.first_name())]
     LOGIN_COURIER = {"login": FakeData.login(), "password": FakeData.password()}
     CREATE_ORDER = {"firstName": FakeData.first_name(),
                     "lastName": FakeData.last_name(),

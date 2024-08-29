@@ -1,7 +1,7 @@
 import pytest
 import allure
-from data import ResponseMessage, FakeBody
-from ApiShop import ApiRequests
+from data import ResponseMessage
+from ApiShop import ApiRequests, ApiBodyBuilder
 from fake_data import FakeData
 
 
@@ -28,7 +28,13 @@ class TestCreatingCourier:
         assert response.status_code == 409 and response.json() == ResponseMessage.THIS_LOGIN_ALREADY_USE
 
     @allure.title("Нельзя создать курьера, не заполнив одно из обязательных полей")
-    @pytest.mark.parametrize('registration_data', FakeBody.CREATE_COURIER_WITHOUT_REQUIRED_FIELD)
+    @pytest.mark.parametrize(
+        'registration_data',
+        [
+            ApiBodyBuilder.build_courier_body(FakeData.login(), '', FakeData.first_name()),
+            ApiBodyBuilder.build_courier_body('', FakeData.password(), FakeData.first_name())
+        ]
+    )
     def test_creating_courier_without_required_field(self, registration_data):
         response = ApiRequests.create_courier(registration_data)
         assert response.status_code == 400 and response.json() == ResponseMessage.NOT_ENOUGH_DATA_FOR_CREATE

@@ -36,7 +36,6 @@ class FakeData:
     def phone():
         fake = Faker("ru_RU")
         phone = fake.phone_number()
-        print(phone)
         return phone
 
     @staticmethod
