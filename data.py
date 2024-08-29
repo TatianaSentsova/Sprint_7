@@ -6,6 +6,7 @@ class Url:
     ENDPOINT_COURIER = '/api/v1/courier'
     ENDPOINT_LOGIN = '/api/v1/courier/login'
     ENDPOINT_ORDER = '/api/v1/orders'
+    ENDPOINT_CANCEL_ORDER = '/api/v1/orders/cancel?track='
 
 
 class ResponseMessage:
