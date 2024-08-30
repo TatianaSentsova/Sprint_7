@@ -1,6 +1,6 @@
 import allure
 from data import ResponseMessage
-from ApiShop import ApiRequests
+from api_shop import ApiRequests
 
 
 class TestGetOrdersList:

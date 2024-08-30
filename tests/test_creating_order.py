@@ -1,7 +1,7 @@
 import pytest
 import allure
 from data import FakeBody, Data
-from ApiShop import ApiRequests
+from api_shop import ApiRequests
 
 
 class TestCreatingOrder:

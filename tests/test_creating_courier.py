@@ -1,7 +1,7 @@
 import pytest
 import allure
 from data import ResponseMessage
-from ApiShop import ApiRequests, ApiBodyBuilder
+from api_shop import ApiRequests, ApiBodyBuilder
 from fake_data import FakeData
 
 

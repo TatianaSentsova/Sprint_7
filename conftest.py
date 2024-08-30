@@ -1,6 +1,6 @@
 import pytest
 from fake_data import FakeData
-from ApiShop import ApiRequests, ApiBodyBuilder
+from api_shop import ApiRequests, ApiBodyBuilder
 
 
 @pytest.fixture
