@@ -19,7 +19,6 @@ class ResponseMessage:
 
 
 class FakeBody:
-    LOGIN_COURIER = {"login": FakeData.login(), "password": FakeData.password()}
     CREATE_ORDER = {"firstName": FakeData.first_name(),
                     "lastName": FakeData.last_name(),
                     "address": FakeData.address(),
